@@ -49,7 +49,7 @@
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
         <div class="user">
-            <img class="img img-fluid rounded-circle" src="uploads\default_profile.png" width="120">
+            <img class="img img-fluid rounded-circle" src="uploads/user.png" width="120">
             <h5><?php echo $username ?></h5>
             <p><?php echo $useremail ?></p>
         </div>
