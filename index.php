@@ -61,6 +61,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
   <meta name="author" content="">
 
   <title>Expense Manager - Dashboard</title>
+  
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -113,6 +114,39 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
 </head>
 
 <body>
+    <style>
+    .news-ticker {
+      width: 100%;
+      background-color: #1D9A6C;
+      color: #fff;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    .news-item {
+      display: inline-block;
+      padding: 0 20px;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="news-ticker">
+    <div class="news-item">🚀Project aims to track personal finance's and planning of investments :-) </div>
+  </div>
+</body>
 
   <div class="d-flex" id="wrapper">
 
@@ -155,7 +189,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
           
     <h3 class="try">Dashboard - Homepage</h3>   
     
-</div>
+  </div>
         
       </nav>
       <div class="container-fluid">
@@ -447,6 +481,7 @@ var myChart = new Chart(line, {
 
     
   </script>
+  
 </body>
 
 </html>
