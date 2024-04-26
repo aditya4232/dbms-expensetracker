@@ -192,6 +192,19 @@ if (isset($_GET['delete'])) {
     </div>
 </div>
 
+<?php 
+if (isset($_POST['add'])) {
+    $expenseamount = $_POST['expenseamount'];
+    $expensedate = $_POST['expensedate'];
+    $expensecategory = $_POST['expensecategory'];
+    $expensecomment = $_POST['expensecomment']; // Add this line to fetch comment
+
+    $expenses = "INSERT INTO expenses (user_id, expense, expensedate, expensecategory, expensecomment) VALUES ('$userid', '$expenseamount', '$expensedate', '$expensecategory', '$expensecomment')"; // Include expensecomment in the INSERT query
+    $result = mysqli_query($con, $expenses) or die("Something Went Wrong!");
+    header('location: add_expense.php');
+}
+?>
+
 
                             <div class="form-group row">
                                 <div class="col-md-12 text-right">

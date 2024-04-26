@@ -36,22 +36,22 @@ if (isset($_POST['email'])) {
   <link href="css/bootstrap.css" rel="stylesheet">
   <style>
     .login-form {
-      width: 340px;
+      width: 560px;
       margin: 50px auto;
-      font-size: 15px;
+      font-size: 18px;
     }
 
     .login-form form {
-      margin-bottom: 15px;
-      background: #fff;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      margin-bottom: 18px;
+      background: #56B870;
+      box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
       padding: 30px;
       border: 1px solid #ddd;
     }
 
     .login-form h2 {
-      color: #636363;
-      margin: 0 0 15px;
+      color: #0A2F51;
+      margin: 0 0 18px;
       position: relative;
       text-align: center;
     }
@@ -65,19 +65,19 @@ if (isset($_POST['email'])) {
     }
 
     .login-form .hint-text {
-      color: #999;
+      color: #0A2F51;
       margin-bottom: 30px;
       text-align: center;
     }
 
     .login-form .description {
-      color: #999;
+      color: #0A2F51;
       margin-top: 20px;
       text-align: center;
     }
 
     .login-form a:hover {
-      text-decoration: none;
+      text-decoration: slateblue;
     }
 
     .form-control,
@@ -94,11 +94,41 @@ if (isset($_POST['email'])) {
 </head>
 
 <body>
+  <style <!doctype html>
+  <html>
+  <head>
+  <style>
+  h1
+  {
+  background-color:#DEEDCF;
+  }
+  p
+  {
+  background-color:;
+  }
+  body
+  {
+
+  background-color:#DEEDCF;
+  background-color: #DEEDCF;
+
+  }
+  </style>
+  </head>
+  <body>
+  <h1>Beta</h1>
+  <p></p>
+  <div style="text-align: center;">
+    <img src="https://www.ifheindia.org/assets/img/ifhe-logo.svg" width="350px" height="100px" alt="IFHE Logo">
+</div>
+  </body>
+  </html>
   <div class="login-form">
     <form action="" method="POST" autocomplete="off">
       <h2 class="text-center">Personal Expense Tracker</h2>
       <p class="hint-text">Login Panel</p>
-      <p class="description">Made By Aditya 353 , Sneha 335 , Aashrita 352</p>
+      <p class="description">Project Made By Aditya Shenvi 353 , Sneha Sah 335 
+        , Aashritha Adoni 352</p>
       <div class="form-group">
         <input type="text" name="email" class="form-control" placeholder="Email" required="required">
       </div>
