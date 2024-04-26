@@ -9,33 +9,35 @@ CREATE TABLE `expenses` (
   `user_id` varchar(15) NOT NULL,
   `expense` int(20) NOT NULL,
   `expensedate` varchar(15) NOT NULL,
-  `expensecategory` varchar(50) NOT NULL
+  `expensecategory` varchar(50) NOT NULL,
+  `expensecomment` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
-INSERT INTO `expenses` (`expense_id`, `user_id`, `expense`, `expensedate`, `expensecategory`) VALUES
-(101, '9', 789, '2023-08-31', 'Medicine'),
-(102, '9', 3, '2023-08-31', 'Entertainment'),
-(103, '9', 469, '2023-08-29', 'Clothings'),
-(104, '9', 985, '2023-08-25', 'Entertainment'),
-(105, '12', 3, '2023-08-31', 'Clothings'),
-(106, '12', 89, '2023-08-16', 'Bills & Recharges'),
-(107, '9', 3, '2023-09-06', 'Clothings'),
-(108, '9', 300, '2023-07-04', 'Food'),
-(109, '9', 456, '2023-09-01', 'Clothings'),
-(110, '9', 3, '2023-08-28', 'Entertainment'),
-(111, '9', 300, '2023-09-03', 'Clothings'),
-(112, '9', 789, '2021-06-03', 'Medicine'),
-(113, '9', 756, '2021-02-23', 'Entertainment'),
-(114, '9', 123, '2022-09-03', 'Medicine'),
-(115, '9', 256, '2021-09-07', 'Medicine'),
-(116, '9', 798, '2023-09-04', 'Medicine'),
-(117, '9', 45, '2023-08-28', 'Entertainment'),
-(118, '9', 50, '2023-10-20', 'Medicine'),
-(119, '9', 786, '2023-10-20', 'Food'),
-(120, '9', 1000, '2023-10-04', 'Entertainment'),
-(121, '9', 500, '2023-10-19', 'Clothings'),
-(122, '9', 426, '2023-10-16', 'Household Items');
+INSERT INTO `expenses` (`expense_id`, `user_id`, `expense`, `expensedate`, `expensecategory`,`expensecomment`) VALUES
+(101, '9', 789, '2023-08-31', 'Medicine',NULL),
+(102, '9', 3, '2023-08-31', 'Entertainment',NULL),
+(103, '9', 469, '2023-08-29', 'Clothings',NULL),
+(104, '9', 985, '2023-08-25', 'Entertainment',NULL),
+(105, '12', 3, '2023-08-31', 'Clothings',NULL),
+(106, '12', 89, '2023-08-16', 'Bills & Recharges',NULL),
+(107, '9', 3, '2023-09-06', 'Clothings',NULL),
+(108, '9', 300, '2023-07-04', 'Food',NULL),
+(109, '9', 456, '2023-09-01', 'Clothings',NULL),
+(110, '9', 3, '2023-08-28', 'Entertainment',NULL),
+(111, '9', 300, '2023-09-03', 'Clothings',NULL),
+(112, '9', 789, '2021-06-03', 'Medicine',NULL),
+(113, '9', 756, '2021-02-23', 'Entertainment',NULL),
+(114, '9', 123, '2022-09-03', 'Medicine',NULL),
+(115, '9', 256, '2021-09-07', 'Medicine',NULL),
+(116, '9', 798, '2023-09-04', 'Medicine',NULL),
+(117, '9', 45, '2023-08-28', 'Entertainment',NULL),
+(118, '9', 50, '2023-10-20', 'Medicine',NULL),
+(119, '9', 786, '2023-10-20', 'Food',NULL),
+(120, '9', 1000, '2023-10-04', 'Entertainment',NULL),
+(121, '9', 500, '2023-10-19', 'Clothings',NULL),
+(122, '9', 426, '2023-10-16', 'Household Items',NULL);
+(123, '13', 70, '2024-04-26', 'Medicine', NULL);
 
 
 CREATE TABLE `expense_categories` (

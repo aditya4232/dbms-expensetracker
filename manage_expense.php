@@ -1,6 +1,7 @@
 <?php
 include("session.php");
 
+
 // Get the selected sorting option from the form
 $selectedSort = isset($_GET['sort']) ? $_GET['sort'] : 'none';
 
