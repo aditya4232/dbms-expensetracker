@@ -185,6 +185,13 @@ if (isset($_GET['delete'])) {
         </div>
     </div>
 </fieldset>
+<div class="form-group row">
+    <label for="expensecomment" class="col-sm-6 col-form-label"><b>Comment</b></label>
+    <div class="col-md-6">
+        <textarea class="form-control col-sm-12" id="expensecomment" name="expensecomment" rows="3"></textarea>
+    </div>
+</div>
+
 
                             <div class="form-group row">
                                 <div class="col-md-12 text-right">
