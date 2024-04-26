@@ -1,3 +1,4 @@
+<?php include("session.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +48,11 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="border-right" id="sidebar-wrapper">
+        <div class="user">
+            <img class="img img-fluid rounded-circle" src="uploads\default_profile.png" width="120">
+            <h5><?php echo $username ?></h5>
+            <p><?php echo $useremail ?></p>
+        </div>
             <div class="sidebar-heading">Management</div>
             <div class="list-group list-group-flush">
                 <a href="index.php" class="list-group-item list-group-item-action"><span data-feather="home"></span>
