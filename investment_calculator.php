@@ -110,7 +110,9 @@
             <!-- Top navigation bar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="toggler" type="button" id="menu-toggle"><span data-feather="menu"></span></button>
+                <div class="col-md-12 text-center">
                 <h3 class="try">Investment Calculator</h3>
+                </div>
             </nav>
             <!-- End top navigation bar -->
 

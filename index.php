@@ -185,7 +185,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
         <button class="toggler" type="button" id="menu-toggle" aria-expanded="false">
           <span data-feather="menu"></span>
         </button>
-        <div class="col-md-0 text-center">
+        <div class="col-md-12 text-center">
           
     <h3 class="try">Dashboard - Homepage</h3>   
     
