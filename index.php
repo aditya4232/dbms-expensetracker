@@ -149,7 +149,9 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
           <span data-feather="menu"></span>
         </button>
         <div class="col-md-0 text-center">
-    <h3 class="try">Dashboard</h3>
+          
+    <h3 class="try">Dashboard - Homepage</h3>   
+    
 </div>
         
       </nav>

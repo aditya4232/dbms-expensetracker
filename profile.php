@@ -66,9 +66,10 @@ if (isset($_POST['but_upload'])) {
     <style>
     .try {
   font-size: 28px; /* Adjust the font size as needed */
-  color: #333;    /* Adjust the color as needed */
+  color: #0A2F51;    /* Adjust the color as needed */
   padding: 15px 65px 5px 0px;   /* Adjust the padding as needed */
 }
+
 </style>
 
 </head>
@@ -110,7 +111,7 @@ if (isset($_POST['but_upload'])) {
                     <span data-feather="menu"></span>
                 </button>
                 <div class="col-md-12 text-center">
-                <h3 class="try">Update Profile</h3>
+                <b><h3 class="try">Update Profile</h3><b>
                 </div>                
             </nav>
 
@@ -119,7 +120,7 @@ if (isset($_POST['but_upload'])) {
                     <div class="col-md-6">
                         <form class="form" method="post" action="" enctype='multipart/form-data'>
                             <div class="text-center mt-3">
-                                <img src="uploads\default_profile.png" class="text-center img img-fluid rounded-circle avatar" width="120" alt="Profile Picture">
+                                <img src="uploads\profile1.jpg" class="text-center img img-fluid rounded-circle avatar" width="300" alt="Profile Picture">
                             </div>
                             <div class="input-group col-md mb-3 mt-3">
                                 
