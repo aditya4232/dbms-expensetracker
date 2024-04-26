@@ -109,28 +109,31 @@ $exp_fetched = mysqli_query($con, "SELECT * FROM expenses WHERE user_id = '$user
                         <br>
                         <table class="table table-hover table-bordered">
                             <thead>
-                                <tr class="text-center">
-                                    <th>Sl No.</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Expense Category</th>
-                                    <th colspan="2">Action</th>
-                                </tr>
-                            </thead>
-                            <?php $count=1; while ($row = mysqli_fetch_array($exp_fetched)) { ?>
-                                <tr>
-                                    <td class="text-center"><?php echo $count;?></td>
-                                    <td class="text-center"><?php echo $row['expensedate']; ?></td>
-                                    <td class="text-center"><?php echo $row['expense']; ?></td>
-                                    <td class="text-center"><?php echo $row['expensecategory']; ?></td>
-                                    <td class="text-center">
-                                        <a href="add_expense.php?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="add_expense.php?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
-                                    </td>
-                                </tr>
-                            <?php $count++; } ?>
+    <tr class="text-center">
+        <th>Sl No.</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Expense Category</th>
+        <th>Comment</th> <!-- New column for comments -->
+        <th colspan="2">Action</th>
+    </tr>
+</thead>
+<?php $count=1; while ($row = mysqli_fetch_array($exp_fetched)) { ?>
+    <tr>
+        <td class="text-center"><?php echo $count;?></td>
+        <td class="text-center"><?php echo $row['expensedate']; ?></td>
+        <td class="text-center"><?php echo $row['expense']; ?></td>
+        <td class="text-center"><?php echo $row['expensecategory']; ?></td>
+        <td class="text-center"><?php echo $row['expensecomment']; ?></td> <!-- Display comment -->
+        <td class="text-center">
+            <a href="add_expense.php?edit=<?php echo $row['expense_id']; ?>" class="btn btn-primary btn-sm" style="border-radius:0%;">Edit</a>
+        </td>
+        <td class="text-center">
+            <a href="add_expense.php?delete=<?php echo $row['expense_id']; ?>" class="btn btn-danger btn-sm" style="border-radius:0%;">Delete</a>
+        </td>
+    </tr>
+<?php $count++; } ?>
+
                         </table>
                     </div>
                 </div>
