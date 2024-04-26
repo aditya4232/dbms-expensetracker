@@ -71,6 +71,21 @@ INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`) VA
 (12, 'Ebey', 'Joe Regi', 'ejr@sjec.in', '25d55ad283aa400af464c76d713c07ad');
 
 
+CREATE TABLE `investments` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(15) NOT NULL,
+  `initial_investment` decimal(10,2) DEFAULT NULL,
+  `annual_interest_rate` decimal(5,2) DEFAULT NULL,
+  `years` int(11) DEFAULT NULL,
+  `future_value` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+ALTER TABLE `investments`
+  ADD PRIMARY KEY (`id`);
+
+
+
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`expense_id`);
 
@@ -93,5 +108,9 @@ ALTER TABLE `expense_categories`
 
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+ALTER TABLE `investments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

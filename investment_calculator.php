@@ -1,5 +1,33 @@
 <?php include("session.php"); ?>
-<!DOCTYPE html>
+<?php
+    // Define variables and set to empty values
+    $initial_investment = $annual_interest_rate = $years = "";
+    $future_value = 0;
+    $error_message = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Validate form inputs
+        if (empty($_POST["initial_investment"]) || empty($_POST["annual_interest_rate"]) || empty($_POST["years"])) {
+            $error_message = "All fields are required";
+        } else {
+            // Sanitize and assign form values
+            $initial_investment = sanitize_input($_POST["initial_investment"]);
+            $annual_interest_rate = sanitize_input($_POST["annual_interest_rate"]);
+            $years = sanitize_input($_POST["years"]);
+
+            // Calculate future value
+            $future_value = $initial_investment * pow(1 + ($annual_interest_rate / 100), $years);
+        }
+    }
+
+    function sanitize_input($data) {
+        // Remove whitespace, slashes, and convert special characters to HTML entities
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    ?>
 <html lang="en">
 
 <head>
@@ -90,26 +118,28 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form method="POST" action="">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <div class="form-group">
-                                <label for="principal">Principal Amount:</label>
-                                <input type="number" class="form-control" id="principal" name="principal" required>
+                                <label for="initial_investment">Principal Amount:</label>
+                                <input type="number" class="form-control" id="initial_investment" name="initial_investment" value="<?php echo $initial_investment; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="rate">Rate of Interest:</label>
-                                <input type="number" class="form-control" id="rate" name="rate" step="0.01" required>
+                                <label for="annual_interest_rate">Rate of Interest:</label>
+                                <input type="number" class="form-control" id="annual_interest_rate" name="annual_interest_rate" step="0.01"value="<?php echo $annual_interest_rate; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="time">Time (in years):</label>
-                                <input type="number" class="form-control" id="time" name="time" required>
+                                <label for="years">Time (in years):</label>
+                                <input type="number" class="form-control" id="years" name="years" value="<?php echo $years; ?>" required>
                             </div>
-                            <button type="submit" name="calculate" class="btn btn-primary">Calculate</button>
+                            <button type="submit" value="calculate" class="btn btn-primary">Calculate</button>
                         </form>
-                        <?php if (isset($investment)): ?>
-                            <div class="alert alert-success mt-3" role="alert">
-                                Investment after <?php echo $time; ?> years: <?php echo $investment; ?>
-                            </div>
-                        <?php endif; ?>
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error_message)) {
+                            echo "<p>Calculation successful. Future value: $" . number_format($future_value, 2) . "</p>";
+                        } elseif (!empty($error_message)) {
+                            echo "<p style='color: red;'>Error: $error_message</p>";
+                        }
+                        ?>
                         <br>
                         <a href="index.php" class="btn btn-secondary">Back to Dashboard</a>
                     </div>
