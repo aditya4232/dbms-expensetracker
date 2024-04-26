@@ -4,21 +4,6 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `dailyexpense`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `expenses`
---
-
 CREATE TABLE `expenses` (
   `expense_id` int(20) NOT NULL,
   `user_id` varchar(15) NOT NULL,
@@ -27,9 +12,6 @@ CREATE TABLE `expenses` (
   `expensecategory` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `expenses`
---
 
 INSERT INTO `expenses` (`expense_id`, `user_id`, `expense`, `expensedate`, `expensecategory`) VALUES
 (101, '9', 789, '2023-08-31', 'Medicine'),
@@ -55,20 +37,12 @@ INSERT INTO `expenses` (`expense_id`, `user_id`, `expense`, `expensedate`, `expe
 (121, '9', 500, '2023-10-19', 'Clothings'),
 (122, '9', 426, '2023-10-16', 'Household Items');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `expense_categories`
---
 
 CREATE TABLE `expense_categories` (
   `category_id` int(11) NOT NULL,
   `category_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `expense_categories`
---
 
 INSERT INTO `expense_categories` (`category_id`, `category_name`) VALUES
 (1, 'Medicine'),
@@ -80,11 +54,6 @@ INSERT INTO `expense_categories` (`category_id`, `category_name`) VALUES
 (7, 'Household Items'),
 (8, 'Others');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
@@ -94,59 +63,33 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `users`
---
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`) VALUES
 (9, 'Anjalita', 'Fernandes', 'anjalita@sjec.in', 'b7161ae9080c2604adb157463312ed47'),
 (12, 'Ebey', 'Joe Regi', 'ejr@sjec.in', '25d55ad283aa400af464c76d713c07ad');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `expenses`
---
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`expense_id`);
 
---
--- Indexes for table `expense_categories`
---
+
 ALTER TABLE `expense_categories`
   ADD PRIMARY KEY (`category_id`);
 
---
--- Indexes for table `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `expenses`
---
 ALTER TABLE `expenses`
   MODIFY `expense_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
---
--- AUTO_INCREMENT for table `expense_categories`
---
+
 ALTER TABLE `expense_categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
---
--- AUTO_INCREMENT for table `users`
---
+
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

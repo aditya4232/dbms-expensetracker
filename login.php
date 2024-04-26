@@ -130,7 +130,7 @@ if (isset($_POST['email'])) {
       <p class="description">Project Made By Aditya Shenvi 353 , Sneha Sah 335 
         , Aashritha Adoni 352</p>
       <div class="form-group">
-        <input type="text" name="email" class="form-control" placeholder="Email" required="required">
+        <input type="email" name="email" class="form-control" placeholder="Email" required="required">
       </div>
       <div class="form-group">
         <input type="password" name="password" class="form-control" placeholder="Password" required="required">
