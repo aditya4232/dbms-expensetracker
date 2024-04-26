@@ -129,6 +129,8 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
         <a href="add_expense.php" class="list-group-item list-group-item-action "><span data-feather="plus-square"></span> Add Expenses</a>
         <a href="manage_expense.php" class="list-group-item list-group-item-action "><span data-feather="dollar-sign"></span> Manage Expenses</a>
         <a href="expensereport.php" class="list-group-item list-group-item-action"><span data-feather="file-text"></span> Expense Report</a>
+        <a href="investment_calculator.php" class="list-group-item list-group-item-action sidebar-active"><span
+                        data-feather="calculator"></span> Investment Calculator</a>
 
       </div>
       <div class="sidebar-heading">Settings </div>
