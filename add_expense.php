@@ -5,12 +5,14 @@ $del = false;
 $expenseamount = "";
 $expensedate = date("Y-m-d");
 $expensecategory = "";
+$expensecomment='';
 if (isset($_POST['add'])) {
     $expenseamount = $_POST['expenseamount'];
     $expensedate = $_POST['expensedate'];
     $expensecategory = $_POST['expensecategory'];
+    $expensecomment = $_POST['expensecomment'];
 
-    $expenses = "INSERT INTO expenses (user_id, expense,expensedate,expensecategory) VALUES ('$userid', '$expenseamount','$expensedate','$expensecategory')";
+    $expenses = "INSERT INTO expenses (user_id, expense,expensedate,expensecategory,expensecomment) VALUES ('$userid', '$expenseamount','$expensedate','$expensecategory','$expensecomment')";
     $result = mysqli_query($con, $expenses) or die("Something Went Wrong!");
     header('location: add_expense.php');
 }
@@ -20,8 +22,9 @@ if (isset($_POST['update'])) {
     $expenseamount = $_POST['expenseamount'];
     $expensedate = $_POST['expensedate'];
     $expensecategory = $_POST['expensecategory'];
+    $expensecomment = $_POST['expensecomment'];
 
-    $sql = "UPDATE expenses SET expense='$expenseamount', expensedate='$expensedate', expensecategory='$expensecategory' WHERE user_id='$userid' AND expense_id='$id'";
+    $sql = "UPDATE expenses SET expense='$expenseamount', expensedate='$expensedate', expensecategory='$expensecategory',expensecomment='$expensecomment' WHERE user_id='$userid' AND expense_id='$id'";
     if (mysqli_query($con, $sql)) {
         echo "Records were updated successfully.";
     } else {
@@ -35,6 +38,7 @@ if (isset($_POST['delete'])) {
     $expenseamount = $_POST['expenseamount'];
     $expensedate = $_POST['expensedate'];
     $expensecategory = $_POST['expensecategory'];
+    $expensecomment = $_POST['expensecomment'];
 
     $sql = "DELETE FROM expenses WHERE user_id='$userid' AND expense_id='$id'";
     if (mysqli_query($con, $sql)) {
@@ -54,6 +58,7 @@ if (isset($_GET['edit'])) {
         $expenseamount = $n['expense'];
         $expensedate = $n['expensedate'];
         $expensecategory = $n['expensecategory'];
+        $expensecomment = $n['expensecomment'];
     } else {
         echo ("WARNING: AUTHORIZATION ERROR: Trying to Access Unauthorized data");
     }
@@ -69,6 +74,7 @@ if (isset($_GET['delete'])) {
         $expenseamount = $n['expense'];
         $expensedate = $n['expensedate'];
         $expensecategory = $n['expensecategory'];
+        $expensecomment = $n['expensecomment'];
     } else {
         echo ("WARNING: AUTHORIZATION ERROR: Trying to Access Unauthorized data");
     }
@@ -143,8 +149,8 @@ if (isset($_GET['delete'])) {
                     <span data-feather="menu"></span>
                 </button>
                 <div class="col-md-12 text-center">
-    <h3 class="try">Add Your Daily Expenses</h3>
-</div>
+                <h3 class="try">Add Your Daily Expenses</h3>
+                </div>
 
                 <hr>                        
             </nav>
@@ -169,46 +175,44 @@ if (isset($_GET['delete'])) {
                                     <input type="date" class="form-control col-sm-12" value="<?php echo $expensedate; ?>" name="expensedate" id="expensedate" required>
                                 </div>
                             </div>
-<fieldset class="form-group">
-    <div class="row">
-        <label class="col-form-label col-sm-6 pt-0"><b>Category</b></label>
-        <div class="col-md">
-            <select class="form-control" id="expensecategory" name="expensecategory" required>
-                <?php
-                $categories_query = "SELECT * FROM expense_categories";
-                $categories_result = mysqli_query($con, $categories_query);
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-6 pt-0"><b>Category</b></label>
+                                        <div class="col-md">
+                                            <select class="form-control" id="expensecategory" name="expensecategory" required>
+                                                <?php
+                                                $categories_query = "SELECT * FROM expense_categories";
+                                                $categories_result = mysqli_query($con, $categories_query);
 
-                while ($row = mysqli_fetch_assoc($categories_result)) {
-                    $category_name = $row['category_name'];
-                    $selected = ($category_name === $expensecategory) ? 'selected' : '';
-                    echo "<option value=\"$category_name\" $selected>$category_name</option>";
-                }
-                ?>
-            </select>
-        </div>
-    </div>
-</fieldset>
-<div class="form-group row">
-    <label for="expensecomment" class="col-sm-6 col-form-label"><b>Comment</b></label>
-    <div class="col-md-6">
-        <textarea class="form-control col-sm-12" id="expensecomment" name="expensecomment" rows="3"></textarea>
-    </div>
-</div>
+                                                while ($row = mysqli_fetch_assoc($categories_result)) {
+                                                    $category_name = $row['category_name'];
+                                                    $selected = ($category_name === $expensecategory) ? 'selected' : '';
+                                                    echo "<option value=\"$category_name\" $selected>$category_name</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-group row">
+                                    <label for="expensecomment" class="col-sm-6 col-form-label" ><b>Comment</b></label>
+                                    <div class="col-md-6">
+                                        <textarea class="form-control col-sm-12" id="expensecomment" name="expensecomment" rows="3" value="<?php echo $expensecomment; ?>"></textarea>
+                                    </div>
+                                </div>
 
-<?php 
-if (isset($_POST['add'])) {
-    $expenseamount = $_POST['expenseamount'];
-    $expensedate = $_POST['expensedate'];
-    $expensecategory = $_POST['expensecategory'];
-    $expensecomment = $_POST['expensecomment']; // Add this line to fetch comment
+                                <?php 
+                                if (isset($_POST['add'])) {
+                                    $expenseamount = $_POST['expenseamount'];
+                                    $expensedate = $_POST['expensedate'];
+                                    $expensecategory = $_POST['expensecategory'];
+                                    $expensecomment = $_POST['expensecomment']; // Add this line to fetch comment
 
-    $expenses = "INSERT INTO expenses (user_id, expense, expensedate, expensecategory, expensecomment) VALUES ('$userid', '$expenseamount', '$expensedate', '$expensecategory', '$expensecomment')"; // Include expensecomment in the INSERT query
-    $result = mysqli_query($con, $expenses) or die("Something Went Wrong!");
-    header('location: add_expense.php');
-}
-?>
-
-
+                                    $expenses = "INSERT INTO expenses (user_id, expense, expensedate, expensecategory, expensecomment) VALUES ('$userid', '$expenseamount', '$expensedate', '$expensecategory', '$expensecomment')"; // Include expensecomment in the INSERT query
+                                    //$result = mysqli_query($con, $expenses) or die("Something Went Wrong!");
+                                    //header('location: add_expense.php');
+                                }
+                                ?>
                             <div class="form-group row">
                                 <div class="col-md-12 text-right">
                                     <?php if ($update == true) : ?>
