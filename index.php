@@ -50,10 +50,12 @@ $this_year_expense_amount = '0' + mysqli_fetch_assoc($this_year_expense)['SUM(ex
 $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)'];
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -114,6 +116,8 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
 </head>
 
 <body>
+  
+  
     <style>
     .news-ticker {
       width: 100%;
@@ -143,6 +147,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
 
 <body>
   
+
   <div class="news-ticker">
     <div class="news-item">🚀Project aims to track personal finance's and planning of investments :-) </div>
   </div>
@@ -185,11 +190,11 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
         <button class="toggler" type="button" id="menu-toggle" aria-expanded="false">
           <span data-feather="menu"></span>
         </button>
-        <div class="col-md-12 text-center">
+        <div class="col-md-0 text-center">
           
     <h3 class="try">Dashboard - Homepage</h3>   
     
-  </div>
+</div>
         
       </nav>
       <div class="container-fluid">
@@ -249,6 +254,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
   </div>
 </div>
 
+
           <!-- Daily Expenses Chart -->
           <div class="col-md-6">
             <div class="card">
@@ -260,7 +266,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
               </div>
             </div>
           </div>
-          <!-- Expen se Category Chart -->
+          <!-- Expense Category Chart -->
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
@@ -481,7 +487,6 @@ var myChart = new Chart(line, {
 
     
   </script>
-  
 </body>
 
 </html>
