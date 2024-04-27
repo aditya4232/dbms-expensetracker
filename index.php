@@ -260,7 +260,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
               </div>
             </div>
           </div>
-          <!-- Expense Category Chart -->
+          <!-- Expen se Category Chart -->
           <div class="col-md-6">
             <div class="card">
               <div class="card-header">
