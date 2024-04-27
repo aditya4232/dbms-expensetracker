@@ -249,8 +249,8 @@
         </script>
             <script>
             $(function () {
-                $("#start_date").datePicker;
-                $("#end_date").datePicker;
+                $("#start_date").datepicker();
+                $("#end_date").datepicker();
             });
         </script>
 
