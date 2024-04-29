@@ -3,6 +3,16 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE TABLE `budget` (
+  `budget_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `b_amount` float NOT NULL,
+  `b_period` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `budget` (`budget_id`, `user_id`, `category_id`, `b_amount`, `b_period`) VALUES
+(4, 13, 0, 256, 7);
 
 CREATE TABLE `expenses` (
   `expense_id` int(20) NOT NULL,
@@ -56,6 +66,24 @@ INSERT INTO `expense_categories` (`category_id`, `category_name`) VALUES
 (7, 'Household Items'),
 (8, 'Others');
 
+-- Table structure for table `income`
+--
+
+CREATE TABLE `income` (
+  `income_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `incomeamount` float DEFAULT NULL,
+  `incomedate` date DEFAULT NULL,
+  `incomedescription` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `income`
+--
+
+INSERT INTO `income` (`income_id`, `user_id`, `incomeamount`, `incomedate`, `incomedescription`) VALUES
+(4, 13, 15000, '2024-04-14', 'part time'),
+
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
@@ -84,7 +112,11 @@ CREATE TABLE `investments` (
 ALTER TABLE `investments`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `budget`
+  ADD PRIMARY KEY (`budget_id`);
 
+ALTER TABLE `income`
+  ADD PRIMARY KEY (`income_id`);
 
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`expense_id`);
@@ -114,3 +146,8 @@ ALTER TABLE `investments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
+ALTER TABLE `budget`
+  MODIFY `budget_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+ALTER TABLE `income`
+  MODIFY `income_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
