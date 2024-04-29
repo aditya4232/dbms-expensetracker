@@ -43,10 +43,10 @@ if (isset($_POST['email'])) {
 
     .login-form form {
       margin-bottom: 18px;
-      background: #56B870;
+      background: #D3D3D3;
       box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3);
       padding: 30px;
-      border: 1px solid #ddd;
+      border: 2px solid #ddd;
     }
 
     .login-form h2 {
@@ -109,14 +109,12 @@ if (isset($_POST['email'])) {
   body
   {
 
-  background-color:#DEEDCF;
-  background-color: #DEEDCF;
+  background-color:#5F9EA0;
 
   }
   </style>
   </head>
   <body>
-  <h1>Beta</h1>
   <p></p>
   <div style="text-align: center;">
     <img src="https://www.ifheindia.org/assets/img/ifhe-logo.svg" width="350px" height="100px" alt="IFHE Logo">

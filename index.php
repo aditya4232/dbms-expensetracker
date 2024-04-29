@@ -95,7 +95,7 @@ $total_expense_amount = '0' + mysqli_fetch_assoc($total_expense)['SUM(expense)']
     border: 3px solid #ccc;
     padding: 10px;
     margin: 10px;
-    background-color: #f8f9fa;
+    background-color: #E6E6FA;
     border-radius: 5px;
   }
 
